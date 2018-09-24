@@ -10,7 +10,6 @@ const router = express.Router();
 
 /* ========== GET/READ ALL ITEMS ========== */
 router.get('/', (req, res, next) => {
-
   Tag.find()
     .sort('name')
     .then(results => {
@@ -60,7 +59,10 @@ router.post('/', (req, res, next) => {
 
   Tag.create(newTag)
     .then(result => {
-      res.location(`${req.originalUrl}/${result.id}`).status(201).json(result);
+      res
+        .location(`${req.originalUrl}/${result.id}`)
+        .status(201)
+        .json(result);
     })
     .catch(err => {
       if (err.code === 11000) {
@@ -133,7 +135,6 @@ router.delete('/:id', (req, res, next) => {
     .catch(err => {
       next(err);
     });
-
 });
 
 module.exports = router;

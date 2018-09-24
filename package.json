@@ -8,17 +8,20 @@
 	},
 	"main": "server.js",
 	"scripts": {
-		"start": "node server.js",
+		"start": "nodemon server.js",
 		"test": "cross-env NODE_ENV=test mocha",
 		"cover": "nyc --reporter=lcov --reporter=text-summary npm test",
 		"dev": "nodemon server.js",
 		"seed": "node ./utils/seed.js"
 	},
 	"dependencies": {
+		"bcryptjs": "^2.4.3",
 		"dotenv": "^6.0.0",
 		"express": "^4.16.3",
 		"mongoose": "^5.2.17",
-		"morgan": "^1.9.0"
+		"morgan": "^1.9.0",
+		"passport": "^0.4.0",
+		"passport-local": "^1.0.0"
 	},
 	"devDependencies": {
 		"chai": "^4.1.2",
